@@ -1,0 +1,101 @@
+#include<stdio.h>
+#include<stdbool.h>
+
+
+// Lista Duplamente Encadeada (TAD)
+typedef struct NoLista* PtrNoLista ;
+
+typedef struct NoLista{
+  int valor;
+  PtrNoLista prox;
+  PtrNoLista anterior;
+}NoLista;
+
+typedef struct{
+
+  PtrNoLista inicio;
+  int quantidade;
+
+}ListaDupla;
+
+
+// inicia uma lista vazia.
+void IniciaLista (ListaDupla *list){
+
+  list->inicio = NULL;
+  list->quantidade = 0;
+}
+
+//verifica se o inicio aponta pŕa NULL e retorna true or false.
+bool VerificarVazia(ListaDupla *list){
+
+  return (list->inicio == NULL);
+
+}
+
+//retorna a variavel quantidade.
+int TamanhoListaDupla (ListaDupla *list){
+
+  return (list->quantidade);
+}
+
+void ImprimirListaDupla(ListaDupla *list){
+
+  PtrNoLista aux;
+
+  printf("[");
+
+  for (aux = list->inicio; aux !=  NULL; aux = aux->prox) {
+    printf(" %d,",aux->valor);
+  }
+  printf("]\n");
+
+}
+
+ void InserirListaDupla (ListaDupla *list, int num){
+   //   caso 1: lista vazia
+   //     - Proximo do Novo é NULL
+   //     - Anterior do Novo é NULL
+   //     - Inicio aponta para o Novo
+   bool confere;
+   PtrNoLista novo;
+
+   novo = malloc(sizeof(NoLista));
+
+   novo->valor = num;
+
+    confere = VerificarVazia(&l);
+    if (confere == 1) {
+      printf("lista vazia.\n\n");
+    } else {
+
+    }
+//
+//   caso 2: menor que o primeiro elemento
+//     - Proximo do Novo recebe Inicio
+//     - Anterior do Inicio recebe novo
+//     - Anterior do Novo recebe NULL
+//     - Inicio recebe Novo
+//
+//   caso 3: percorrer a lista (meio, final)
+//     - Encontrar o ponto de inserção (Aux)
+//     - Proximo do Novo recebe prox Aux (NULL | ou não NULL)
+//     - Se o Proximo do Aux != NULL
+//           - Anterior do Proximo do Aux recebe novo
+//     - Anterior do Novo recebe Aux
+//     - Proximo do Aux recebe Novo
+//
+//   qtde++
+}
+
+
+int main(int argc, char const *argv[]) {
+  ListaDupla l;
+
+
+  IniciaLista(&l);
+
+//  inserirListaDupla(&l,valor)
+  printf("foi  \n\n");
+  return 0;
+}
